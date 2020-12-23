@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インドリコ誕生日の秒読み</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>
+            <span>インドリコ誕生日の秒読み</span>
+        </h2>
+        <h3>
+           [INDRICO'S BIRTHDAY COUNTDOWN]
+        </h3>
+        <div class="outer">
+            <div class="inner">
+                <hr>
+            </div>
+            <div class="countdown">
+                <div id="day">NA</div>
+                <div id="hour">NA</div>
+                <div id="minute">NA</div>
+                <div id="second">NA</div>
+            </div>
+        </div>
+        <p>Click to <span style="color:turquoise;">change</span> BG and <span style="color:tomato;">spin</span> the tag!</p>
+    </div>
+    <div class="footer">Inspired and Source: <span style="color:yellowgreen;">Indrico Jowensen</span></div>
+    
+       
+    <script type="text/javascript">
+
+        function birthday(){
+            let currentYear = new Date().getFullYear();
+            let countDate = new Date(`Dec 13, ${currentYear} 00:00:00`).getTime();
+            let now = new Date().getTime();
+
+            if (now > countDate){
+                countDate = new Date(`Dec 13, ${currentYear+1} 00:00:00`).getTime();
+            }else{
+                countDate = new Date(`Dec 13, ${currentYear} 00:00:00`).getTime();
+            }
+
+            let gap = countDate - now;
+
+            let second = 1000;
+            let minute = second * 60;
+            let hour = minute * 60;
+            let day = hour * 24;
+
+            let d = Math.floor(gap / (day));
+            let h = Math.floor((gap % (day)) / (hour));
+            let m = Math.floor((gap % (hour)) / (minute));
+            let s = Math.floor((gap % (minute)) / (second));
+
+            document.getElementById('day').innerHTML = d;
+            document.getElementById('hour').innerHTML = h;
+            document.getElementById('minute').innerHTML = m;
+            document.getElementById('second').innerHTML = s;
+
+            document.getElementById("day").onclick = function() {faChange()};
+          
+            document.getElementById("hour").onclick = function() {faTum()};
+           
+            document.getElementById("minute").onclick = function() {faMar()};
+
+            document.getElementById("second").onclick = function() {faTra()};
+
+            function faTum(){
+                document.body.style.backgroundImage = "url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/03dab799-ea3c-436c-a571-3a719564cbe1/d9pwakg-d7bedebd-8101-461f-a333-55b77a454bd6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDNkYWI3OTktZWEzYy00MzZjLWE1NzEtM2E3MTk1NjRjYmUxXC9kOXB3YWtnLWQ3YmVkZWJkLTgxMDEtNDYxZi1hMzMzLTU1Yjc3YTQ1NGJkNi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ._misUutQcIP9tCMb-1iheca4TB7LTM1FQSez3W1HZBU')";
+                document.getElementById('hour').classList.add('classname');
+            }
+            function faChange(){
+                document.body.style.backgroundImage = "url('https://wallpapers.etherealgames.com/wp-content/uploads/sites/6/2018/04/The-Legend-of-Heroes-Trails-in-the-Sky-SC-Wallpaper-016.jpg')";
+                document.getElementById('day').classList.add('classname');
+            }
+            function faMar(){
+                document.body.style.backgroundImage = "url('https://wallpaperaccess.com/full/2266610.jpg')";
+                document.getElementById('minute').classList.add('classname');
+            }
+            function faTra(){
+                document.body.style.backgroundImage = "url('https://wallpapercave.com/wp/wp7251353.jpg')";
+                document.getElementById('second').classList.add('classname');
+            }
+        }
+        birthday();
+
+        setInterval(function(){
+            birthday();
+        }, 1000)      
+
+    </script>
+    
+</body>
+</html>
